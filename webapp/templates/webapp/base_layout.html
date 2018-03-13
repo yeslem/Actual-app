@@ -1,0 +1,38 @@
+{% load static from staticfiles %}
+
+<html>
+    <head>
+        <title>Pressure vessel calculator</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'webapp.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <header class="wrapper">
+            <h1><a href="/calculator/"><img src="{% static 'logo.png' %}" alt="djangonautic" height="100" width="200" /></a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="/logout/" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    <body>
+        <div>
+            <h1><a href="/">Pressure Vessel calculator</a></h1>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </body>
+</html>
