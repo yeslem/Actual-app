@@ -1,6 +1,7 @@
 {% extends 'webapp/base_layout.html' %}
 
 {% block content %}
+{% if not user.is_authenticated %}
 <div class="container">
 <h1>Welcome</h1>
 <p>
@@ -13,4 +14,7 @@
     <button type="submit">Login</button>
 </form>
 </div>
+{% else %}
+<a href="{% url 'selection' %}">Click here to go to Calculator selection</a>
+{% endif %}
 {% endblock %}

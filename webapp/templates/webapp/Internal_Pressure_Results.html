@@ -1,0 +1,25 @@
+{% extends 'webapp/base_layout.html' %}
+
+{% block content %}
+  <a href="{% url 'selection' %}">Go back to selection menu</a>
+  <h1>Internal Pressure Calculator Results</h1>
+  <h2>Input:</h2>
+  <li>Material: {{ result.material_name }}</li>
+  {% if result.custom_stress %}
+  <li>Custom Stress: {{ result.custom_stress }}</li>
+  {% endif %}
+  <li>Pressure: {{ result.pressure }} Kpa.</li>
+  <li>Outer Radius: {{ result.Outer_radius }} mm.</li>
+  <li>Joint Efficiency: {{ result.joint_efficiency }}</li>
+  <!-- {% if not result.custom_stress %}
+  <li>Allow stress: {{ result.allow_stress }}</li>
+  {% endif %} -->
+  {% if result.error %}
+  <h2>ERROR!: {{ result.error }}</h2>
+  {% else %}
+  <h2>Result:</h2>
+  <li>Thickness is: {{ result.thickness|floatformat:2 }} mm.</li>
+  {% endif %}
+  <!-- <footer><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</footer> -->
+
+  {% endblock %}

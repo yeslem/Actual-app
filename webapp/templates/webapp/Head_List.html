@@ -1,0 +1,25 @@
+{% extends 'webapp/base_layout.html' %}
+
+{% block content %}
+  <a href="{% url 'selection' %}">Go back to selection menu</a>
+  <h1>Heads <a href="{% url 'AddHead' %}" class="btn btn-info">Add Head</a></h1>
+  <table class="table table-striped" border=1>
+    <thead>
+        <th>Name</th>
+        <th>Constant</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {% for head in heads %}
+        <tr>
+            <td>{{ head }}</td>
+            <td>{{ head.Constant }}</td>
+            <td>
+                <a href="{% url 'head-delete' head.pk %}" class="btn btn-info">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  {{ Name }}
+{% endblock %}

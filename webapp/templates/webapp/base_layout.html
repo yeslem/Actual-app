@@ -9,16 +9,21 @@
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <header class="wrapper">
-            <h1><a href="/calculator/"><img src="{% static 'logo.png' %}" alt="djangonautic" height="100" width="200" /></a></h1>
+          <h1><a href="/selection/"><img src="{% static 'logo.png' %}" alt="selection" height="100" width="200" /></a></h1>
             <nav>
+                <!-- NOTE: the Logout button is only shown when I'm authenticated (logged in)-->
+                {% if user.is_authenticated %}
                 <ul>
                     <li>
-                        <form class="logout-link" action="/logout/" method="post">
+
+                        <a class="btn btn-info logout-link" href="/logout/">Logout</a>
+                        {% comment %} <form class="logout-link" action="/logout/" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
-                        </form>
+                        </form> {% endcomment %}
                     </li>
                 </ul>
+                {% endif %}
             </nav>
         </header>
     <body>

@@ -1,0 +1,14 @@
+{% extends 'webapp/base_layout.html' %}
+
+{% block content %}
+  {% comment %} <form class="site-form" action="webapp/calculator.html" method="post">
+    {%csrf_token%}
+    {{ form }}
+    <input type="Submit" value="Submit"> {% endcomment %}
+    <p>&#9658;<a href="{% url 'Internal' %}">Internal</a></p>
+    <p>&#9658;<a href="{% url 'External' %}">External</a></p>
+    <p>&#9658;<a href="{% url 'material' %}">Materials List</a></p>
+    <p>&#9658;<a href="{% url 'head' %}">Heads List</a></p>
+{% endblock %}
+
+    <!-- <p>&#9658; -->

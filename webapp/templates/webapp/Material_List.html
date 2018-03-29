@@ -1,0 +1,27 @@
+{% extends 'webapp/base_layout.html' %}
+
+{% block content %}
+  <a href="{% url 'selection' %}">Go back to selection menu</a>
+  <h1>Materials <a href="{% url 'AddMaterial' %}" class="btn btn-info">Add Material</a></h1>
+  <table class="table table-striped" border=1>
+    <thead>
+        <th>Material</th>
+        <th>Allowed Stress</th>
+        <th>Elasticity</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {% for material in materials %}
+        <tr>
+            <td>{{ material }}</td>
+            <td>{{ material.allow_stress }}</td>
+            <td>{{ material.elasticity }}</td>
+            <td>
+                <a href="{% url 'material-delete' material.pk %}" class="btn btn-info">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  {{ Name }}
+{% endblock %}

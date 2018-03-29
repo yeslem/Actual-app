@@ -1,0 +1,28 @@
+{% extends 'webapp/base_layout.html' %}
+
+{% block content %}
+  <a href="{% url 'selection' %}">Go back to selection menu</a>
+  <h1>External Pressure Calculator Results</h1>
+  <h2>Input:</h2>
+  <li>Material: {{ result.material_name }}</li>
+  <li>Head: {{ result.head_name }}</li>
+  <li>Pressure: {{ result.pressure }}</li>
+  <li>Joint Efficiency: {{ result.joint_efficiency }}</li>
+  <li>Internal Radius: {{ result.internal_radius }}</li>
+  <li>Corrosion Allowance: {{ result.corrosion }}</li>
+  <li>Tan to Tan Length: {{ result.tan_to_tan }}</li>
+  <li>Outside Diameter: {{ result.outside_diameter }}</li>
+  <li>Initialize Thickness: {{ result.thickness }}</li>
+  <li>Step Size: {{ result.step_size }}</li>
+  <li>Temperature: {{ result.temperature }}</li>
+  {% if not result.custom_stress %}
+  <li>Allow stress: {{ result.allow_stress }}</li>
+  {% endif %}
+  {% if result.error %}
+  <h2>ERROR!: {{ result.error }}</h2>
+  {% else %}
+  <h2>Result:</h2>
+  <li>Thickness is: {{ result.thickness_result|floatformat:2 }} mm.</li>
+  <li>Allowable pressure is: {{ result.allow_pressure }} </li>
+  {% endif %}
+  {% endblock %}
