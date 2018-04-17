@@ -95,10 +95,7 @@ def External_Pressure_Results(request):
     head = request.POST['Head']
     custom_stress = request.POST['Custom_stress']
     pressure = request.POST['Pressure']
-    out_radius = request.POST['Outer_radius']
     tan_to_tan = request.POST['Tan_to_Tan_Length']
-    joint_efficiency = request.POST['Joint_efficiency']
-    corrosion = request.POST['Corrosion']
     outside_diameter = request.POST['Outside_Diameter']
     thickness = request.POST['Thickness']
     step_size = request.POST['Step_size']
@@ -110,8 +107,6 @@ def External_Pressure_Results(request):
     p = float(pressure)
 
     if p < 20684:
-        e = float(joint_efficiency)
-        c = float(corrosion)
         ltt = float(tan_to_tan)
         do = float(outside_diameter)
         t= float(thickness)
@@ -152,10 +147,7 @@ def External_Pressure_Results(request):
         'custom_stress': custom_stress,
         'head_name': head_name,
         'pressure': pressure,
-        'outer_radius': out_radius,
-        'joint_efficiency': joint_efficiency,
         'tan_to_tan': tan_to_tan,
-        'corrosion': corrosion,
         'outside_diameter': outside_diameter,
         'thickness': thickness,
         'step_size': step_size,
